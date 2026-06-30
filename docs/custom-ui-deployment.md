@@ -24,6 +24,34 @@ cp .env.example .env
 docker compose -f docker-compose.yaml -f docker-compose.custom.yaml up -d --build
 ```
 
+`docker-compose.custom.yaml` rewrites Docker image pulls to domestic registry proxy endpoints, which avoids direct access to `registry-1.docker.io` for images such as `redis:6-alpine`, `busybox:latest`, `postgres:15-alpine`, and the Dify service images.
+
+The default registry proxy variables are:
+
+```env
+DOCKER_HUB_PROXY=docker.m.daocloud.io
+GHCR_PROXY=ghcr.m.daocloud.io
+QUAY_PROXY=quay.m.daocloud.io
+ELASTIC_PROXY=elastic.m.daocloud.io
+```
+
+If you use a private registry or cloud ACR, put your own proxy values in `docker/.env`.
+
+If you want to run the official Dify images without the customized web build, use the mirror-only override instead:
+
+```bash
+docker compose -f docker-compose.yaml -f docker-compose.cn.yaml up -d
+```
+
+The customized web Docker build also uses domestic defaults:
+
+```env
+DOCKER_PROXY=docker.m.daocloud.io
+ALPINE_MIRROR=https://mirrors.aliyun.com/alpine
+NPM_REGISTRY=https://registry.npmmirror.com
+PIP_MIRROR_URL=https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
 The default custom web image tag is `dify-mo-web:latest`. To use a private registry image instead, set this in `docker/.env`:
 
 ```env

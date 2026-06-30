@@ -1,14 +1,17 @@
 # base image
-FROM node:22.22.1-alpine AS base
+ARG DOCKER_PROXY=docker.m.daocloud.io
+FROM ${DOCKER_PROXY}/library/node:22.22.1-alpine AS base
 LABEL maintainer="takatost@gmail.com"
 
-# if you located in China, you can use aliyun mirror to speed up
-# RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+ARG ALPINE_MIRROR=https://mirrors.aliyun.com/alpine
+ARG NPM_REGISTRY=https://registry.npmmirror.com
+ENV npm_config_registry=${NPM_REGISTRY}
+ENV pnpm_config_registry=${NPM_REGISTRY}
+ENV COREPACK_NPM_REGISTRY=${NPM_REGISTRY}
 
-# if you located in China, you can use taobao registry to speed up
-# RUN npm config set registry https://registry.npmmirror.com
-
+RUN sed -i "s#https://dl-cdn.alpinelinux.org/alpine#${ALPINE_MIRROR}#g; s#http://dl-cdn.alpinelinux.org/alpine#${ALPINE_MIRROR}#g" /etc/apk/repositories
 RUN apk add --no-cache tzdata
+RUN npm config set registry ${NPM_REGISTRY}
 RUN corepack enable
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"

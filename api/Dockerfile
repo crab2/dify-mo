@@ -1,18 +1,23 @@
 # base image
-FROM python:3.12-slim-bookworm AS base
+ARG DOCKER_PROXY=docker.m.daocloud.io
+FROM ${DOCKER_PROXY}/library/python:3.12-slim-bookworm AS base
 
 WORKDIR /app/api
 
 # Install uv
 ENV UV_VERSION=0.8.9
+ARG DEBIAN_MIRROR=https://mirrors.aliyun.com/debian
+ARG DEBIAN_SECURITY_MIRROR=https://mirrors.aliyun.com/debian-security
+ARG PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple
+ENV PIP_INDEX_URL=${PIP_INDEX_URL}
+ENV UV_DEFAULT_INDEX=${PIP_INDEX_URL}
+ENV UV_INDEX_URL=${PIP_INDEX_URL}
 
-RUN pip install --no-cache-dir uv==${UV_VERSION}
+RUN sed -i "s#http://deb.debian.org/debian-security#${DEBIAN_SECURITY_MIRROR}#g; s#https://deb.debian.org/debian-security#${DEBIAN_SECURITY_MIRROR}#g; s#http://security.debian.org/debian-security#${DEBIAN_SECURITY_MIRROR}#g; s#https://security.debian.org/debian-security#${DEBIAN_SECURITY_MIRROR}#g; s#http://deb.debian.org/debian#${DEBIAN_MIRROR}#g; s#https://deb.debian.org/debian#${DEBIAN_MIRROR}#g" /etc/apt/sources.list.d/debian.sources \
+    && pip install --no-cache-dir uv==${UV_VERSION}
 
 
 FROM base AS packages
-
-# if you located in China, you can use aliyun mirror to speed up
-# RUN sed -i 's@deb.debian.org@mirrors.aliyun.com@g' /etc/apt/sources.list.d/debian.sources
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -57,6 +62,7 @@ ARG dify_uid=1001
 ARG NODE_MAJOR=22
 ARG NODE_PACKAGE_VERSION=22.21.0-1nodesource1
 ARG NODESOURCE_KEY_FPR=6F71F525282841EEDAF851B42F59B5F99B1BE0B4
+ARG NODESOURCE_MIRROR=https://deb.nodesource.com
 RUN groupadd -r -g ${dify_uid} dify && \
     useradd -r -u ${dify_uid} -g ${dify_uid} -s /bin/bash dify && \
     chown -R dify:dify /app
@@ -68,13 +74,13 @@ RUN \
         curl \
         gnupg \
     && mkdir -p /etc/apt/keyrings \
-    && curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key -o /tmp/nodesource.gpg \
+    && curl -fsSL ${NODESOURCE_MIRROR}/gpgkey/nodesource-repo.gpg.key -o /tmp/nodesource.gpg \
     && gpg --show-keys --with-colons /tmp/nodesource.gpg \
         | awk -F: '/^fpr:/ {print $10}' \
         | grep -Fx "${NODESOURCE_KEY_FPR}" \
     && gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg /tmp/nodesource.gpg \
     && rm -f /tmp/nodesource.gpg \
-    && echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_${NODE_MAJOR}.x nodistro main" \
+    && echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] ${NODESOURCE_MIRROR}/node_${NODE_MAJOR}.x nodistro main" \
         > /etc/apt/sources.list.d/nodesource.list \
     && apt-get update \
     # Install dependencies

@@ -1,0 +1,25 @@
+# Domestic registry mirror overrides for docker-compose.middleware.yaml.
+#
+# Usage from this directory:
+#   docker compose --env-file middleware.env -f docker-compose.middleware.yaml -f docker-compose.middleware.cn.yaml up -d
+services:
+  db_postgres:
+    image: ${DOCKER_HUB_PROXY:-docker.m.daocloud.io}/library/postgres:15-alpine
+
+  db_mysql:
+    image: ${DOCKER_HUB_PROXY:-docker.m.daocloud.io}/library/mysql:8.0
+
+  redis:
+    image: ${DOCKER_HUB_PROXY:-docker.m.daocloud.io}/library/redis:6-alpine
+
+  sandbox:
+    image: ${DOCKER_HUB_PROXY:-docker.m.daocloud.io}/langgenius/dify-sandbox:0.2.15
+
+  plugin_daemon:
+    image: ${DOCKER_HUB_PROXY:-docker.m.daocloud.io}/langgenius/dify-plugin-daemon:0.6.3-local
+
+  ssrf_proxy:
+    image: ${DOCKER_HUB_PROXY:-docker.m.daocloud.io}/ubuntu/squid:latest
+
+  weaviate:
+    image: ${DOCKER_HUB_PROXY:-docker.m.daocloud.io}/semitechnologies/weaviate:1.27.0
