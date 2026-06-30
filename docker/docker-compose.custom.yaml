@@ -1,0 +1,15 @@
+# Compose override for the customized Dify web UI.
+#
+# Usage from this directory:
+#   docker compose -f docker-compose.yaml -f docker-compose.custom.yaml up -d --build
+#
+# To push and deploy a prebuilt private image, set CUSTOM_WEB_IMAGE in .env and
+# build/push it separately, or keep this file as-is for local source builds.
+services:
+  web:
+    image: ${CUSTOM_WEB_IMAGE:-dify-mo-web:latest}
+    build:
+      context: ..
+      dockerfile: web/Dockerfile
+      args:
+        NEXT_PUBLIC_BASE_PATH: ${NEXT_PUBLIC_BASE_PATH:-}

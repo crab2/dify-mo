@@ -1,23 +1,11 @@
 'use client'
 import type { FC } from 'react'
+import type { LogoSize, LogoStyle } from './logo-config'
 import { cn } from '@langgenius/dify-ui/cn'
+import { DEFAULT_BRAND_NAME } from '@/constants/branding'
 import useTheme from '@/hooks/use-theme'
 import { basePath } from '@/utils/var'
-
-export type LogoStyle = 'default' | 'monochromeWhite'
-
-export const logoPathMap: Record<LogoStyle, string> = {
-  default: '/logo/logo.svg',
-  monochromeWhite: '/logo/logo-monochrome-white.svg',
-}
-
-export type LogoSize = 'large' | 'medium' | 'small'
-
-export const logoSizeMap: Record<LogoSize, string> = {
-  large: 'w-16 h-7',
-  medium: 'w-12 h-[22px]',
-  small: 'w-9 h-4',
-}
+import { logoPathMap, logoSizeMap } from './logo-config'
 
 type DifyLogoProps = {
   style?: LogoStyle
@@ -30,7 +18,7 @@ const DifyLogo: FC<DifyLogoProps> = ({
   style = 'default',
   size = 'medium',
   className,
-  alt = 'Dify',
+  alt = DEFAULT_BRAND_NAME,
 }) => {
   const { theme } = useTheme()
   const themedStyle = (theme === 'dark' && style === 'default') ? 'monochromeWhite' : style

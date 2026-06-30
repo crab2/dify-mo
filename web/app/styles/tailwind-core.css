@@ -29,6 +29,7 @@
 @import '../components/base/badge/index.css';
 @import '../components/base/premium-badge/index.css';
 @import './glass-surface.css';
+@import './custom-brand.css';
 
 /* ---------- JS plugins ------------------------------------------------ */
 @plugin './plugins/icons.ts';

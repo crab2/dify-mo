@@ -500,7 +500,7 @@ describe('MainNav', () => {
 
     renderMainNav()
 
-    const logoLink = screen.getByLabelText('Dify')
+    const logoLink = screen.getByLabelText('MO AI')
     expect(logoLink).not.toHaveClass('px-2')
     expect(logoLink.parentElement).toHaveClass('pt-3', 'pr-2', 'pb-2', 'pl-4')
 

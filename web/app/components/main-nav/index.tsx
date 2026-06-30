@@ -19,6 +19,7 @@ import { SnippetCollapsedPreview } from '@/app/components/snippets/components/sn
 import { SnippetSidebarContent } from '@/app/components/snippets/components/snippet-sidebar'
 import { useSnippetDraftStore } from '@/app/components/snippets/draft-store'
 import { useSnippetDetailStore } from '@/app/components/snippets/store'
+import { DEFAULT_BRAND_NAME } from '@/constants/branding'
 import { useAppContext } from '@/context/app-context'
 import { AgentDetailSection, AgentDetailTop } from '@/features/agent-v2/agent-detail/navigation'
 import { isAgentV2Enabled } from '@/features/agent-v2/feature-flag'
@@ -202,7 +203,7 @@ export function MainNav({
     })), [agentV2Enabled, canUseAppDeploy, isCurrentWorkspaceDatasetOperator, systemFeatures.enable_marketplace, t])
 
   const renderLogo = () => {
-    const appTitle = systemFeatures.branding.enabled && systemFeatures.branding.application_title ? systemFeatures.branding.application_title : 'Dify'
+    const appTitle = systemFeatures.branding.enabled && systemFeatures.branding.application_title ? systemFeatures.branding.application_title : DEFAULT_BRAND_NAME
 
     return (
       <Link
@@ -226,7 +227,7 @@ export function MainNav({
   return (
     <aside
       className={cn(
-        'relative flex h-full shrink-0',
+        'relative flex h-full shrink-0 border-r border-divider-subtle',
         detailNavigationTransitionDisabled ? 'transition-none' : 'transition-all',
         isDetailNavigationHoverPreviewOpen ? 'overflow-visible' : 'overflow-hidden',
         showDetailNavigation
@@ -240,7 +241,7 @@ export function MainNav({
     >
       <div
         className={cn(
-          'flex min-h-0 flex-1 flex-col',
+          'flex min-h-0 flex-1 flex-col shadow-[inset_-1px_0_0_var(--color-divider-subtle)]',
           showDetailNavigation && (
             isDetailNavigationHoverPreviewOpen
               ? 'absolute top-1 bottom-1 left-1 z-40 w-60 overflow-hidden rounded-lg border border-divider-subtle bg-components-panel-bg shadow-lg'

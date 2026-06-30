@@ -4,6 +4,7 @@ import { useSuspenseQuery } from '@tanstack/react-query'
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import DifyLogo from '@/app/components/base/logo/dify-logo'
+import { DEFAULT_BRAND_NAME } from '@/constants/branding'
 import { systemFeaturesQueryOptions } from '@/features/system-features/client'
 import Link from '@/next/link'
 import { useRouter } from '@/next/navigation'
@@ -17,7 +18,7 @@ const Header = () => {
   const goToHome = useCallback(() => {
     router.push('/')
   }, [router])
-  const logoLabel = systemFeatures.branding.enabled && systemFeatures.branding.application_title ? systemFeatures.branding.application_title : 'Dify'
+  const logoLabel = systemFeatures.branding.enabled && systemFeatures.branding.application_title ? systemFeatures.branding.application_title : DEFAULT_BRAND_NAME
 
   return (
     <div className="flex flex-1 items-center justify-between px-4">
