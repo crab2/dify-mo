@@ -23,7 +23,7 @@ const Header = () => {
   const { data: systemFeatures } = useSuspenseQuery(systemFeaturesQueryOptions())
 
   return (
-    <div className="flex w-full items-center justify-between p-6">
+    <div className="custom-brand-auth-header flex w-full items-center justify-between p-6">
       {systemFeatures.branding.enabled && systemFeatures.branding.login_page_logo
         ? (
             <img

@@ -54,7 +54,7 @@ const AppCard = ({
   return (
     <div
       className={cn(
-        'group relative col-span-1 flex h-35.5 flex-col overflow-hidden rounded-xl border-[0.5px] border-components-panel-border bg-components-panel-on-panel-item-bg pb-3 text-left shadow-xs shadow-shadow-shadow-3',
+        'custom-brand-card custom-brand-template-card group relative col-span-1 flex h-35.5 flex-col overflow-hidden rounded-xl border-[0.5px] border-components-panel-border bg-components-panel-on-panel-item-bg pb-3 text-left shadow-xs shadow-shadow-shadow-3',
         isClickable && 'cursor-pointer',
       )}
     >

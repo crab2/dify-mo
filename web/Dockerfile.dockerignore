@@ -8,8 +8,7 @@
 !e2e/
 !e2e/package.json
 !packages/
-!packages/**/
-!packages/**/package.json
+!packages/**
 !sdks/
 !sdks/nodejs-client/
 !sdks/nodejs-client/package.json
@@ -17,6 +16,10 @@
 .git
 node_modules
 .pnpm-store
+packages/**/node_modules
+packages/**/dist
+packages/**/.turbo
+packages/**/.cache
 web/.env
 web/.env.*
 web/logs

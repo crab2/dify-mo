@@ -4,6 +4,7 @@ import { useFavicon, useTitle } from 'ahooks'
 import { useEffect } from 'react'
 import { systemFeaturesQueryOptions } from '@/features/system-features/client'
 import { defaultSystemFeatures } from '@/features/system-features/config'
+import { DEFAULT_BRAND_NAME } from '@/constants/branding'
 import { basePath } from '@/utils/var'
 
 export default function useDocumentTitle(title: string) {
@@ -18,7 +19,7 @@ export default function useDocumentTitle(title: string) {
       favicon = systemFeatures.branding.favicon
     }
     else {
-      titleStr = `${prefix}Dify`
+      titleStr = `${prefix}${DEFAULT_BRAND_NAME}`
       favicon = `${basePath}/favicon.ico`
     }
   }

@@ -208,7 +208,7 @@ export function MainNav({
     return (
       <Link
         href="/"
-        className="flex h-8 shrink-0 items-center overflow-hidden focus-visible:ring-2 focus-visible:ring-state-accent-solid focus-visible:outline-hidden"
+        className="custom-brand-logo-lockup flex h-8 shrink-0 items-center overflow-hidden px-1 focus-visible:ring-2 focus-visible:ring-state-accent-solid focus-visible:outline-hidden"
         aria-label={appTitle}
       >
         {systemFeatures.branding.enabled && systemFeatures.branding.workspace_logo
@@ -227,7 +227,7 @@ export function MainNav({
   return (
     <aside
       className={cn(
-        'relative flex h-full shrink-0 border-r border-divider-subtle',
+        'custom-brand-sidebar relative flex h-full shrink-0 border-r border-divider-subtle',
         detailNavigationTransitionDisabled ? 'transition-none' : 'transition-all',
         isDetailNavigationHoverPreviewOpen ? 'overflow-visible' : 'overflow-hidden',
         showDetailNavigation
@@ -241,7 +241,7 @@ export function MainNav({
     >
       <div
         className={cn(
-          'flex min-h-0 flex-1 flex-col shadow-[inset_-1px_0_0_var(--color-divider-subtle)]',
+          'custom-brand-sidebar-panel flex min-h-0 flex-1 flex-col shadow-[inset_-1px_0_0_var(--color-divider-subtle)]',
           showDetailNavigation && (
             isDetailNavigationHoverPreviewOpen
               ? 'absolute top-1 bottom-1 left-1 z-40 w-60 overflow-hidden rounded-lg border border-divider-subtle bg-components-panel-bg shadow-lg'

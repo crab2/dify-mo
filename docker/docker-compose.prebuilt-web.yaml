@@ -1,0 +1,19 @@
+# Compose override for low-memory Docker environments.
+#
+# Build the frontend on the host first:
+#   pnpm -C ../web build
+#   pnpm -C ../web build:vinext
+#
+# Then run:
+#   docker compose -f docker-compose.yaml -f docker-compose.custom.yaml -f docker-compose.prebuilt-web.yaml up -d --build --force-recreate
+
+services:
+  web:
+    image: ${CUSTOM_WEB_IMAGE:-dify-mo-web:latest}
+    build:
+      context: ..
+      dockerfile: web/Dockerfile.prebuilt
+      args:
+        DOCKER_PROXY: ${DOCKER_PROXY:-docker.m.daocloud.io}
+        ALPINE_MIRROR: ${ALPINE_MIRROR:-https://mirrors.aliyun.com/alpine}
+        NPM_REGISTRY: ${NPM_REGISTRY:-https://registry.npmmirror.com}

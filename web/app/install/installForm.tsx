@@ -108,7 +108,7 @@ const InstallForm = () => {
       ? <Loading />
       : (
           <>
-            <div className="sm:mx-auto sm:w-full sm:max-w-md">
+            <div className="custom-brand-auth-card sm:mx-auto sm:w-full sm:max-w-md">
               <h2 className="text-[32px] font-bold text-text-primary">{t('setAdminAccount', { ns: 'login' })}</h2>
               <p className="mt-1 text-sm text-text-secondary">{t('setAdminAccountDesc', { ns: 'login' })}</p>
             </div>

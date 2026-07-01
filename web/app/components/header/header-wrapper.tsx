@@ -30,7 +30,7 @@ const HeaderWrapper = ({
   })
 
   return (
-    <div className={cn('sticky top-0 right-0 left-0 z-30 flex min-h-[56px] shrink-0 grow-0 basis-auto flex-col bg-components-panel-bg-blur shadow-[0_1px_0_var(--color-divider-subtle)] backdrop-blur-[10px]', s.header, isBordered ? 'border-b border-divider-regular' : '', hideHeader && (inWorkflowCanvas || isPipelineCanvas) && 'hidden')}>
+    <div className={cn('custom-brand-header sticky top-0 right-0 left-0 z-30 flex min-h-[56px] shrink-0 grow-0 basis-auto flex-col bg-components-panel-bg-blur shadow-[0_1px_0_var(--color-divider-subtle)] backdrop-blur-[10px]', s.header, isBordered ? 'border-b border-divider-regular' : '', hideHeader && (inWorkflowCanvas || isPipelineCanvas) && 'hidden')}>
       {children}
     </div>
   )

@@ -5,6 +5,7 @@ import { useQuery, useSuspenseQuery } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { IS_CE_EDITION } from '@/config'
+import { DEFAULT_BRAND_NAME } from '@/constants/branding'
 import { isLegacyBase401, userProfileQueryOptions } from '@/features/account-profile/client'
 import { systemFeaturesQueryOptions } from '@/features/system-features/client'
 import { LicenseStatus } from '@/features/system-features/constants'
@@ -69,6 +70,10 @@ function NormalForm() {
   const noLoginMethodsConfigured = !hasSocialLogin && !hasEmailCodeLogin && !hasEmailPasswordLogin && !hasSsoLogin
   const allMethodsAreDisabled = noLoginMethodsConfigured || isInviteCheckError
   const isLoading = isCheckLoading || isLoggedIn || (isInviteLink && isInviteCheckLoading)
+  const defaultSignInTitle = t('pageTitle', { ns: 'login' }).replaceAll('Dify', DEFAULT_BRAND_NAME)
+  const signInTitle = systemFeatures.branding.enabled
+    ? t('pageTitleForE', { ns: 'login' })
+    : defaultSignInTitle
 
   useEffect(() => {
     if (!isLoggedIn)
@@ -172,7 +177,7 @@ function NormalForm() {
             )
           : (
               <div className="mx-auto w-full">
-                <h2 className="title-4xl-semi-bold text-text-primary">{systemFeatures.branding.enabled ? t('pageTitleForE', { ns: 'login' }) : t('pageTitle', { ns: 'login' })}</h2>
+                <h2 className="title-4xl-semi-bold text-text-primary">{signInTitle}</h2>
                 <p className="mt-2 body-md-regular text-text-tertiary">{t('welcome', { ns: 'login' })}</p>
               </div>
             )}

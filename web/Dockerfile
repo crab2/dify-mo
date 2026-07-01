@@ -42,10 +42,14 @@ WORKDIR /app
 COPY --from=packages /app/ .
 COPY . .
 
+RUN corepack prepare pnpm@11.9.0 --activate
+
 WORKDIR /app/web
 ENV NODE_OPTIONS="--max-old-space-size=4096"
+ENV NEXT_BUILD_CPUS=2
 ENV pnpm_config_verify_deps_before_run=false
-RUN pnpm build && pnpm build:vinext
+RUN node -e "require.resolve('@base-ui/react/alert-dialog'); require.resolve('jotai')"
+RUN pnpm --config.verify-deps-before-run=false build && pnpm --config.verify-deps-before-run=false build:vinext
 
 
 # production stage

@@ -10,10 +10,14 @@ This fork keeps the official Dify project structure and layers the UI changes on
   - active color: `#0958D9`
   - neutral page and panel backgrounds for dense enterprise workflows
   - success, warning, and error colors aligned to common Ant Design status colors
-- `web/app/components/main-nav/layout.tsx`, `web/app/components/main-nav/index.tsx`, `web/app/components/header/header-wrapper.tsx`, and `web/app/account/(commonLayout)/layout.tsx` add brand layout styling without changing business logic.
+- The main shell follows an Ant Design enterprise layout direction: fixed left navigation, a dynamic right-side work area, 8px-oriented spacing, clear current-navigation feedback, and card surfaces with stronger hierarchy.
+- `web/app/components/main-nav/layout.tsx`, `web/app/components/main-nav/index.tsx`, and `web/app/components/header/header-wrapper.tsx` add brand layout styling without changing business logic.
+- `web/app/signin/*`, `web/app/install/*`, and `web/hooks/use-document-title.ts` apply the same skin to the unauthenticated pages, so the Docker first screen shows `MO AI` instead of the default Dify title.
+- Template cards, studio app cards, and starred app cards receive the custom brand card treatment while preserving their click handlers, permissions, menus, and routing behavior.
 - `web/public/logo/logo.svg` and `web/public/logo/logo-monochrome-white.svg` are temporary `MO AI` placeholder logos.
 - `web/app/layout.tsx`, `web/public/manifest.json`, and `web/public/browserconfig.xml` update browser theme metadata to the customized blue.
 - `docker/docker-compose.custom.yaml` lets Docker Compose build the customized frontend image from this source tree.
+- `docker/docker-compose.prebuilt-web.yaml` and `web/Dockerfile.prebuilt` provide a low-memory build path that packages host-generated frontend artifacts into the same `dify-mo-web:latest` runtime image.
 
 ## Local Docker Compose Deployment
 
@@ -21,10 +25,60 @@ Run from the `docker` directory:
 
 ```bash
 cp .env.example .env
-docker compose -f docker-compose.yaml -f docker-compose.custom.yaml up -d --build
+docker compose -f docker-compose.yaml -f docker-compose.custom.yaml up -d --build --force-recreate
 ```
 
 `docker-compose.custom.yaml` rewrites Docker image pulls to domestic registry proxy endpoints, which avoids direct access to `registry-1.docker.io` for images such as `redis:6-alpine`, `busybox:latest`, `postgres:15-alpine`, and the Dify service images.
+
+If the page still shows the official Dify logo or old dark UI, the running `web` container is almost certainly still using the official image. Check it from the `docker` directory:
+
+```bash
+docker compose -f docker-compose.yaml -f docker-compose.custom.yaml ps -a
+```
+
+The `web` service should show:
+
+```text
+docker-web-1   dify-mo-web:latest
+```
+
+If it shows `langgenius/dify-web:1.15.0`, rebuild and recreate only the frontend and gateway first:
+
+```bash
+docker compose -f docker-compose.yaml -f docker-compose.custom.yaml rm -sf web nginx
+docker compose -f docker-compose.yaml -f docker-compose.custom.yaml up -d --build --force-recreate web nginx
+```
+
+For a full restart with the customized frontend image:
+
+```bash
+docker compose -f docker-compose.yaml -f docker-compose.custom.yaml up -d --build --force-recreate
+```
+
+## Low-Memory Docker Build Path
+
+On Docker Desktop or WSL environments with limited memory, the source Docker build can fail during `next build` with errors such as `cannot allocate memory` or a BuildKit `EOF`. In that case, build the frontend on the host first, then let Docker only package the generated artifacts.
+
+Run from the repository root:
+
+```bash
+pnpm -C web build
+pnpm -C web build:vinext
+```
+
+Then run from the `docker` directory:
+
+```bash
+docker compose -f docker-compose.yaml -f docker-compose.custom.yaml -f docker-compose.prebuilt-web.yaml up -d --build --force-recreate
+```
+
+The prebuilt path still produces and runs the same custom image tag:
+
+```text
+dify-mo-web:latest
+```
+
+It is the recommended path when the host can build the web app successfully but Docker does not have enough memory to compile the frontend inside the image build.
 
 The default registry proxy variables are:
 
@@ -62,6 +116,15 @@ Then build and push the image from the repository root:
 
 ```bash
 docker build -f web/Dockerfile -t your-registry.example.com/your-namespace/dify-mo-web:latest .
+docker push your-registry.example.com/your-namespace/dify-mo-web:latest
+```
+
+For low-memory Docker hosts, build and push the prebuilt runtime image instead:
+
+```bash
+pnpm -C web build
+pnpm -C web build:vinext
+docker build -f web/Dockerfile.prebuilt -t your-registry.example.com/your-namespace/dify-mo-web:latest .
 docker push your-registry.example.com/your-namespace/dify-mo-web:latest
 ```
 
