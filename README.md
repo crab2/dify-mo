@@ -74,7 +74,8 @@ Dify is an open-source LLM app development platform. Its intuitive interface com
 The easiest way to start the Dify server is through [Docker Compose](docker/docker-compose.yaml). Before running Dify with the following commands, make sure that [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) are installed on your machine:
 
 ```bash
-cd dify
+git clone https://github.com/crab2/dify-mo.git
+cd dify-mo
 cd docker
 cp .env.example .env
 docker compose up -d

@@ -372,7 +372,16 @@ services:
 
   # Frontend web application.
   web:
-    image: langgenius/dify-web:1.15.0
+    image: ${CUSTOM_WEB_IMAGE:-dify-mo-web:latest}
+    pull_policy: build
+    build:
+      context: ..
+      dockerfile: web/Dockerfile
+      args:
+        DOCKER_PROXY: ${DOCKER_PROXY:-docker.m.daocloud.io}
+        ALPINE_MIRROR: ${ALPINE_MIRROR:-https://mirrors.aliyun.com/alpine}
+        NPM_REGISTRY: ${NPM_REGISTRY:-https://registry.npmmirror.com}
+        NEXT_PUBLIC_BASE_PATH: ${NEXT_PUBLIC_BASE_PATH:-}
     restart: always
     env_file:
       - path: ./envs/core-services/web.env

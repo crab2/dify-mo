@@ -88,6 +88,17 @@ COPY --from=builder --chown=dify:dify /app/web/dist/standalone ./targets/vinext
 
 COPY --chown=dify:dify --chmod=755 web/docker/entrypoint.sh ./entrypoint.sh
 
+RUN find /app/targets/next/web/.next/node_modules -maxdepth 1 -type l -print | while read -r link; do \
+      target="$(readlink "$link")"; \
+      package="${target##*/node_modules/}"; \
+      replacement="$(find /app/targets/next/node_modules/.pnpm -path "*/node_modules/${package}" -type d | head -n 1)"; \
+      if [ -n "$replacement" ]; then \
+        rm "$link"; \
+        cp -a "$replacement" "$link"; \
+        chown -R dify:dify "$link"; \
+      fi; \
+    done
+
 ARG COMMIT_SHA
 ENV COMMIT_SHA=${COMMIT_SHA}
 

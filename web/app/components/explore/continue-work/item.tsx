@@ -37,7 +37,7 @@ const ContinueWorkItem = ({
     isRbacEnabled,
   })
   const cardClassName = cn(
-    'flex min-w-0 items-center gap-3 overflow-hidden rounded-xl border-[0.5px] border-components-panel-border bg-components-panel-bg px-4 pt-4 pb-4 shadow-xs shadow-shadow-shadow-3',
+    'custom-brand-card flex min-w-0 items-center gap-3 overflow-hidden rounded-lg border border-components-panel-border bg-components-panel-bg px-4 pt-4 pb-4',
     isPreviewOnly && 'cursor-not-allowed opacity-60',
   )
 

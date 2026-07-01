@@ -16,15 +16,26 @@ This fork keeps the official Dify project structure and layers the UI changes on
 - Template cards, studio app cards, and starred app cards receive the custom brand card treatment while preserving their click handlers, permissions, menus, and routing behavior.
 - `web/public/logo/logo.svg` and `web/public/logo/logo-monochrome-white.svg` are temporary `MO AI` placeholder logos.
 - `web/app/layout.tsx`, `web/public/manifest.json`, and `web/public/browserconfig.xml` update browser theme metadata to the customized blue.
-- `docker/docker-compose.custom.yaml` lets Docker Compose build the customized frontend image from this source tree.
+- `docker/docker-compose.yaml` builds the customized frontend image from this source tree by default, so the official Docker Compose quick-start flow works after cloning this fork.
+- `docker/docker-compose.custom.yaml` keeps optional domestic registry mirror overrides for deployments that need them.
 - `docker/docker-compose.prebuilt-web.yaml` and `web/Dockerfile.prebuilt` provide a low-memory build path that packages host-generated frontend artifacts into the same `dify-mo-web:latest` runtime image.
 
 ## Local Docker Compose Deployment
 
-Run from the `docker` directory:
+Clone this fork and run the same Docker Compose flow as the official Dify quick start:
 
 ```bash
+git clone https://github.com/crab2/dify-mo.git
+cd dify-mo/docker
 cp .env.example .env
+docker compose up -d
+```
+
+The default `web` service builds and runs `dify-mo-web:latest` from the repository source, so the custom UI is included without an extra Compose override.
+
+If you need domestic registry mirrors for dependency images, use the optional override from the `docker` directory:
+
+```bash
 docker compose -f docker-compose.yaml -f docker-compose.custom.yaml up -d --build --force-recreate
 ```
 
@@ -33,7 +44,7 @@ docker compose -f docker-compose.yaml -f docker-compose.custom.yaml up -d --buil
 If the page still shows the official Dify logo or old dark UI, the running `web` container is almost certainly still using the official image. Check it from the `docker` directory:
 
 ```bash
-docker compose -f docker-compose.yaml -f docker-compose.custom.yaml ps -a
+docker compose ps -a
 ```
 
 The `web` service should show:
@@ -45,14 +56,14 @@ docker-web-1   dify-mo-web:latest
 If it shows `langgenius/dify-web:1.15.0`, rebuild and recreate only the frontend and gateway first:
 
 ```bash
-docker compose -f docker-compose.yaml -f docker-compose.custom.yaml rm -sf web nginx
-docker compose -f docker-compose.yaml -f docker-compose.custom.yaml up -d --build --force-recreate web nginx
+docker compose rm -sf web nginx
+docker compose up -d --build --force-recreate web nginx
 ```
 
 For a full restart with the customized frontend image:
 
 ```bash
-docker compose -f docker-compose.yaml -f docker-compose.custom.yaml up -d --build --force-recreate
+docker compose up -d --build --force-recreate
 ```
 
 ## Low-Memory Docker Build Path
@@ -69,7 +80,7 @@ pnpm -C web build:vinext
 Then run from the `docker` directory:
 
 ```bash
-docker compose -f docker-compose.yaml -f docker-compose.custom.yaml -f docker-compose.prebuilt-web.yaml up -d --build --force-recreate
+docker compose -f docker-compose.yaml -f docker-compose.prebuilt-web.yaml up -d --build --force-recreate
 ```
 
 The prebuilt path still produces and runs the same custom image tag:
@@ -128,7 +139,11 @@ docker build -f web/Dockerfile.prebuilt -t your-registry.example.com/your-namesp
 docker push your-registry.example.com/your-namespace/dify-mo-web:latest
 ```
 
-The standard generated `docker/docker-compose.yaml` is intentionally left untouched, so future upstream Dify compose regeneration stays clean.
+When using domestic registry mirrors and the low-memory path together, include both optional overrides:
+
+```bash
+docker compose -f docker-compose.yaml -f docker-compose.custom.yaml -f docker-compose.prebuilt-web.yaml up -d --build --force-recreate
+```
 
 ## Future Branding Hook
 

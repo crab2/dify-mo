@@ -427,6 +427,11 @@
     background: linear-gradient(90deg, rgb(22 119 255 / 0), rgb(22 119 255 / 0.52), rgb(82 196 26 / 0.26), rgb(22 119 255 / 0));
   }
 
+  .custom-brand-explore {
+    background:
+      linear-gradient(180deg, rgb(230 244 255 / 0.72) 0%, rgb(245 248 255 / 0.94) 230px, var(--custom-brand-main-bg) 100%);
+  }
+
   .custom-brand-sidebar {
     background:
       linear-gradient(180deg, rgb(22 119 255 / 0.12) 0%, transparent 260px),
@@ -490,6 +495,21 @@
 
   .custom-brand-template-card {
     position: relative;
+  }
+
+  .custom-brand-template-card::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    height: 3px;
+    background: linear-gradient(90deg, var(--custom-brand-primary), var(--custom-brand-success));
+    opacity: 0;
+    transition: opacity 0.18s ease;
+  }
+
+  .custom-brand-template-card:hover::before,
+  .custom-brand-template-card:focus-within::before {
+    opacity: 1;
   }
 
   .custom-brand-studio-card {

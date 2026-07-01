@@ -54,14 +54,14 @@ const AppCard = ({
   return (
     <div
       className={cn(
-        'custom-brand-card custom-brand-template-card group relative col-span-1 flex h-35.5 flex-col overflow-hidden rounded-xl border-[0.5px] border-components-panel-border bg-components-panel-on-panel-item-bg pb-3 text-left shadow-xs shadow-shadow-shadow-3',
+        'custom-brand-card custom-brand-template-card group relative col-span-1 flex h-36 flex-col overflow-hidden rounded-lg border border-components-panel-border bg-components-panel-on-panel-item-bg pb-3 text-left',
         isClickable && 'cursor-pointer',
       )}
     >
       {isClickable && (
         <button
           type="button"
-          className="absolute inset-0 z-10 cursor-pointer appearance-none rounded-xl border-0 bg-transparent p-0 outline-hidden focus-visible:ring-2 focus-visible:ring-state-accent-solid focus-visible:ring-inset"
+          className="absolute inset-0 z-10 cursor-pointer appearance-none rounded-lg border-0 bg-transparent p-0 outline-hidden focus-visible:ring-2 focus-visible:ring-state-accent-solid focus-visible:ring-inset"
           aria-labelledby={nameId}
           aria-describedby={app.description ? descriptionId : undefined}
           onClick={handleCardClick}

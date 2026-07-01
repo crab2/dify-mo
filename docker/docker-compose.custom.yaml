@@ -27,6 +27,7 @@ services:
 
   web:
     image: ${CUSTOM_WEB_IMAGE:-dify-mo-web:latest}
+    pull_policy: build
     build:
       context: ..
       dockerfile: web/Dockerfile

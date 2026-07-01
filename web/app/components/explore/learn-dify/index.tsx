@@ -94,7 +94,7 @@ const LearnDifyContent = ({
       style={isClosing ? { transform: collapseTransform, transformOrigin: 'center center' } : undefined}
       aria-labelledby="learn-dify-title"
     >
-      <div className="-mx-4 rounded-2xl bg-background-section p-4">
+      <div className="-mx-4 rounded-lg border border-components-panel-border bg-background-section p-4 shadow-xs shadow-shadow-shadow-3">
         <div className="flex items-start justify-between gap-4 pb-2.5">
           <div className="min-w-0">
             <h2 id="learn-dify-title" className="truncate system-xl-medium text-text-primary" title={sectionTitle}>
@@ -109,7 +109,7 @@ const LearnDifyContent = ({
           {onHide && (
             <button
               type="button"
-              className="flex size-8 shrink-0 items-center justify-center rounded-lg text-text-tertiary hover:bg-state-base-hover hover:text-text-secondary focus-visible:bg-state-base-hover focus-visible:ring-1 focus-visible:ring-components-input-border-hover focus-visible:outline-hidden"
+              className="flex size-8 shrink-0 items-center justify-center rounded-lg text-text-tertiary hover:bg-state-accent-hover hover:text-text-accent focus-visible:bg-state-base-hover focus-visible:ring-1 focus-visible:ring-components-input-border-hover focus-visible:outline-hidden"
               aria-label={t('learnDify.hide', { ns: 'explore' })}
               onClick={handleHide}
             >
