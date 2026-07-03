@@ -5,6 +5,7 @@ import type { ApprovalContext } from '@/service/device-flow'
 import { Avatar } from '@langgenius/dify-ui/avatar'
 import { Button } from '@langgenius/dify-ui/button'
 import { useEffect, useState } from 'react'
+import { DEFAULT_BRAND_NAME } from '@/constants/branding'
 import { approveExternal, fetchApprovalContext } from '@/service/device-flow'
 import { approveErrorCopy } from '../utils/error-copy'
 
@@ -85,7 +86,7 @@ const AuthorizeSSO: FC<Props> = ({ onApproved, onError }) => {
   return (
     <div className="flex flex-col gap-5">
       <div>
-        <h2 className="text-2xl font-semibold text-text-primary">Authorize Dify CLI</h2>
+        <h2 className="text-2xl font-semibold text-text-primary">Authorize {DEFAULT_BRAND_NAME} CLI</h2>
         <p className="mt-2 text-sm text-text-secondary">
           difyctl is requesting access via SSO. If you didn&apos;t start this from your terminal, close this tab.
         </p>

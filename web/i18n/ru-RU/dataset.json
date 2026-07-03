@@ -56,7 +56,7 @@
   "externalAPIForm.encrypted.end": "Технологии.",
   "externalAPIForm.encrypted.front": "Ваш токен API будет зашифрован и сохранен с помощью",
   "externalAPIForm.save": "Спасать",
-  "externalAPIPanelDescription": "Внешний API базы знаний используется для подключения к базе знаний за пределами Dify и извлечения знаний из этой базы знаний.",
+  "externalAPIPanelDescription": "Внешний API базы знаний используется для подключения к базе знаний за пределами AI助手 и извлечения знаний из этой базы знаний.",
   "externalAPIPanelDocumentation": "Узнайте, как создать API внешних знаний",
   "externalAPIPanelTitle": "API внешних знаний",
   "externalKnowledgeBase": "Внешняя база знаний",

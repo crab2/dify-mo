@@ -56,7 +56,7 @@
   "externalAPIForm.encrypted.end": "فناوری.",
   "externalAPIForm.encrypted.front": "توکن API شما رمزگذاری و با استفاده از",
   "externalAPIForm.save": "ذخیره",
-  "externalAPIPanelDescription": "API دانش خارجی برای اتصال به یک پایگاه دانش خارج از Dify و بازیابی دانش از آن پایگاه دانش استفاده می شود.",
+  "externalAPIPanelDescription": "API دانش خارجی برای اتصال به یک پایگاه دانش خارج از AI助手 و بازیابی دانش از آن پایگاه دانش استفاده می شود.",
   "externalAPIPanelDocumentation": "یادگیری نحوه ایجاد یک API دانش خارجی",
   "externalAPIPanelTitle": "API دانش خارجی",
   "externalKnowledgeBase": "پایگاه دانش خارجی",

@@ -56,7 +56,7 @@
   "externalAPIForm.encrypted.end": "เทคโนโลยี ",
   "externalAPIForm.encrypted.front": "โทเค็น API ของคุณจะถูกเข้ารหัสและจัดเก็บโดยใช้",
   "externalAPIForm.save": "ประหยัด",
-  "externalAPIPanelDescription": "API ความรู้ภายนอกใช้เพื่อเชื่อมต่อกับฐานความรู้ภายนอก Dify และดึงความรู้จากฐานความรู้นั้น",
+  "externalAPIPanelDescription": "API ความรู้ภายนอกใช้เพื่อเชื่อมต่อกับฐานความรู้ภายนอก AI助手 และดึงความรู้จากฐานความรู้นั้น",
   "externalAPIPanelDocumentation": "เรียนรู้วิธีสร้าง API ความรู้ภายนอก",
   "externalAPIPanelTitle": "API ความรู้ภายนอก",
   "externalKnowledgeBase": "ฐานความรู้ภายนอก",

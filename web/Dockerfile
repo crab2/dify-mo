@@ -45,11 +45,15 @@ COPY . .
 RUN corepack prepare pnpm@11.9.0 --activate
 
 WORKDIR /app/web
-ENV NODE_OPTIONS="--max-old-space-size=4096"
-ENV NEXT_BUILD_CPUS=2
+ARG NODE_BUILD_MAX_OLD_SPACE_SIZE=4096
+ARG NEXT_BUILD_CPUS=1
+ENV NODE_OPTIONS="--max-old-space-size=${NODE_BUILD_MAX_OLD_SPACE_SIZE}"
+ENV NEXT_BUILD_CPUS=${NEXT_BUILD_CPUS}
+ENV NEXT_TELEMETRY_DISABLED=1
 ENV pnpm_config_verify_deps_before_run=false
 RUN node -e "require.resolve('@base-ui/react/alert-dialog'); require.resolve('jotai')"
-RUN pnpm --config.verify-deps-before-run=false build && pnpm --config.verify-deps-before-run=false build:vinext
+RUN pnpm --config.verify-deps-before-run=false exec next build --webpack
+RUN pnpm --config.verify-deps-before-run=false build:vinext
 
 
 # production stage
@@ -88,16 +92,18 @@ COPY --from=builder --chown=dify:dify /app/web/dist/standalone ./targets/vinext
 
 COPY --chown=dify:dify --chmod=755 web/docker/entrypoint.sh ./entrypoint.sh
 
-RUN find /app/targets/next/web/.next/node_modules -maxdepth 1 -type l -print | while read -r link; do \
-      target="$(readlink "$link")"; \
-      package="${target##*/node_modules/}"; \
-      replacement="$(find /app/targets/next/node_modules/.pnpm -path "*/node_modules/${package}" -type d | head -n 1)"; \
-      if [ -n "$replacement" ]; then \
-        rm "$link"; \
-        cp -a "$replacement" "$link"; \
-        chown -R dify:dify "$link"; \
-      fi; \
-    done
+RUN if [ -d /app/targets/next/web/.next/node_modules ]; then \
+      find /app/targets/next/web/.next/node_modules -maxdepth 1 -type l -print | while read -r link; do \
+        target="$(readlink "$link")"; \
+        package="${target##*/node_modules/}"; \
+        replacement="$(find /app/targets/next/node_modules/.pnpm -path "*/node_modules/${package}" -type d | head -n 1)"; \
+        if [ -n "$replacement" ]; then \
+          rm "$link"; \
+          cp -a "$replacement" "$link"; \
+          chown -R dify:dify "$link"; \
+        fi; \
+      done; \
+    fi
 
 ARG COMMIT_SHA
 ENV COMMIT_SHA=${COMMIT_SHA}

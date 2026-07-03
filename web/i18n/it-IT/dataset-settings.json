@@ -4,7 +4,7 @@
   "form.chunkStructure.learnMore": "Ulteriori informazioni",
   "form.chunkStructure.title": "Struttura a blocchi",
   "form.desc": "Descrizione della Conoscenza",
-  "form.descPlaceholder": "Descrivi cosa c'è in questa Conoscenza. Una descrizione dettagliata permette all'IA di accedere al contenuto della Conoscenza in modo tempestivo. Se vuota, Dify utilizzerà la strategia di recupero predefinita.",
+  "form.descPlaceholder": "Descrivi cosa c'è in questa Conoscenza. Una descrizione dettagliata permette all'IA di accedere al contenuto della Conoscenza in modo tempestivo. Se vuota, AI助手 utilizzerà la strategia di recupero predefinita.",
   "form.embeddingModel": "Modello di Embedding",
   "form.embeddingModelTip": "Per cambiare il modello di embedding, vai alle ",
   "form.embeddingModelTipLink": "Impostazioni",

@@ -15,6 +15,7 @@ import {
 import { useTranslation } from 'react-i18next'
 import { useStoreApi } from 'reactflow'
 import Badge from '@/app/components/base/badge'
+import { DEFAULT_BRAND_NAME } from '@/constants/branding'
 import BlockIcon from '../block-icon'
 import { BlockEnum } from '../types'
 import { AgentBlockItem } from './agent-selector'
@@ -49,7 +50,7 @@ const Blocks = ({
       sort: 0, // Default sort order
       type: block.type,
       title: block.title,
-      author: 'Dify',
+      author: DEFAULT_BRAND_NAME,
       // @ts-expect-error Fix this missing field later
       description: block.description,
     },

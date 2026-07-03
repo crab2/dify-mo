@@ -56,7 +56,7 @@
   "externalAPIForm.encrypted.end": "Tecnologia.",
   "externalAPIForm.encrypted.front": "Il tuo token API verrà crittografato e archiviato utilizzando",
   "externalAPIForm.save": "Salvare",
-  "externalAPIPanelDescription": "L'API di conoscenza esterna viene utilizzata per connettersi a una knowledge base esterna a Dify e recuperare le informazioni da tale knowledge base.",
+  "externalAPIPanelDescription": "L'API di conoscenza esterna viene utilizzata per connettersi a una knowledge base esterna a AI助手 e recuperare le informazioni da tale knowledge base.",
   "externalAPIPanelDocumentation": "Scopri come creare un'API della Knowledge Base esterna",
   "externalAPIPanelTitle": "API di conoscenza esterna",
   "externalKnowledgeBase": "Base di conoscenza esterna",

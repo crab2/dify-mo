@@ -5,6 +5,7 @@ import { Dialog, DialogCloseButton, DialogContent, DialogDescription, DialogTitl
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 import Tag from '@/app/components/base/tag'
+import { DEFAULT_BRAND_NAME } from '@/constants/branding'
 import { useDocLink } from '@/context/i18n'
 import { AppModeEnum } from '@/types/app'
 
@@ -98,7 +99,7 @@ const CustomizeModal: FC<IShareLinkProps> = ({
                   {' '}
                   <br />
                   NEXT_PUBLIC_APP_KEY=
-                  {'\'<Web API Key From Dify>\''}
+                  {`'<Web API Key From ${DEFAULT_BRAND_NAME}>'`}
                   {' '}
                   <br />
                   NEXT_PUBLIC_API_URL=

@@ -1,5 +1,5 @@
 import { useQuery, useSuspenseQuery } from '@tanstack/react-query'
-import { render, waitFor } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { useRouter, useSearchParams } from '@/next/navigation'
 import NormalForm from '../normal-form'
@@ -38,6 +38,18 @@ vi.mock('@/service/common', async () => {
   return {
     ...actual,
     invitationCheck: vi.fn(),
+  }
+})
+
+vi.mock('react-i18next', async () => {
+  const actual = await vi.importActual<typeof import('react-i18next')>('react-i18next')
+  const { createReactI18nextMock } = await import('@/test/i18n-mock')
+  return {
+    ...actual,
+    ...createReactI18nextMock({
+      'login.pageTitle': '登录 中国移动 AI助手',
+      'login.pageTitleForE': '登录 中国移动 AI助手',
+    }),
   }
 })
 
@@ -95,6 +107,43 @@ describe('NormalForm', () => {
         },
       },
     } as unknown as ReturnType<typeof useSuspenseQuery>)
+  })
+
+  describe('Rendering', () => {
+    it('should show the China Mobile AI assistant title when default branding is used', () => {
+      mockUseSearchParams.mockReturnValue(new URLSearchParams())
+      mockUseSuspenseQuery.mockReturnValue({
+        data: {
+          enable_social_oauth_login: false,
+          sso_enforced_for_signin: false,
+          enable_email_code_login: false,
+          enable_email_password_login: false,
+          is_email_setup: true,
+          is_allow_register: false,
+          license: {
+            status: 'none',
+          },
+          branding: {
+            enabled: false,
+          },
+        },
+      } as unknown as ReturnType<typeof useSuspenseQuery>)
+      mockUseQuery
+        .mockReturnValueOnce({
+          isPending: false,
+          data: null,
+          error: null,
+        } as unknown as ReturnType<typeof useQuery>)
+        .mockReturnValueOnce({
+          isPending: false,
+          isError: false,
+          data: null,
+        } as unknown as ReturnType<typeof useQuery>)
+
+      render(<NormalForm />)
+
+      expect(screen.getByRole('heading', { name: '登录 中国移动 AI助手' })).toBeInTheDocument()
+    })
   })
 
   describe('Invite Redirects', () => {

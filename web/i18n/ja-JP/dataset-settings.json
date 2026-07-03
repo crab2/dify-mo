@@ -4,7 +4,7 @@
   "form.chunkStructure.learnMore": "詳細はこちら",
   "form.chunkStructure.title": "チャンク構造",
   "form.desc": "ナレッジベースの説明",
-  "form.descPlaceholder": "このデータセットに含まれる内容を説明してください。詳細に記述するほど、AI がデータセットの内容にすばやくアクセスできます。空欄の場合、Dify はデフォルトのヒット戦略を使用します。",
+  "form.descPlaceholder": "このデータセットに含まれる内容を説明してください。詳細に記述するほど、AI がデータセットの内容にすばやくアクセスできます。空欄の場合、AI助手 はデフォルトのヒット戦略を使用します。",
   "form.embeddingModel": "埋め込みモデル",
   "form.embeddingModelTip": "埋め込みモデルを変更するには、",
   "form.embeddingModelTipLink": "設定",

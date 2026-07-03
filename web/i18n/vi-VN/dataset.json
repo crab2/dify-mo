@@ -56,7 +56,7 @@
   "externalAPIForm.encrypted.end": "Công nghệ.",
   "externalAPIForm.encrypted.front": "Mã thông báo API của bạn sẽ được mã hóa và lưu trữ bằng cách sử dụng",
   "externalAPIForm.save": "Cứu",
-  "externalAPIPanelDescription": "API kiến thức bên ngoài được sử dụng để kết nối với cơ sở kiến thức bên ngoài Dify và truy xuất kiến thức từ cơ sở kiến thức đó.",
+  "externalAPIPanelDescription": "API kiến thức bên ngoài được sử dụng để kết nối với cơ sở kiến thức bên ngoài AI助手 và truy xuất kiến thức từ cơ sở kiến thức đó.",
   "externalAPIPanelDocumentation": "Tìm hiểu cách tạo API Kiến thức Bên ngoài",
   "externalAPIPanelTitle": "API kiến thức bên ngoài",
   "externalKnowledgeBase": "Cơ sở kiến thức bên ngoài",

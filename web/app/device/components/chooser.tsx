@@ -3,6 +3,7 @@
 import type { FC } from 'react'
 import { Button } from '@langgenius/dify-ui/button'
 import { setPostLoginRedirect } from '@/app/signin/utils/post-login-redirect'
+import { DEFAULT_BRAND_NAME } from '@/constants/branding'
 import { useRouter } from '@/next/navigation'
 
 type Props = {
@@ -44,7 +45,7 @@ const Chooser: FC<Props> = ({ userCode, ssoAvailable }) => {
         onClick={onAccount}
       >
         <span className="i-ri-user-3-line h-4 w-4" />
-        Sign in with Dify account
+        Sign in with {DEFAULT_BRAND_NAME} account
       </Button>
       {ssoAvailable && (
         <Button

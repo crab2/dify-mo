@@ -4,7 +4,7 @@
   "form.chunkStructure.learnMore": "Tìm hiểu thêm",
   "form.chunkStructure.title": "Cấu trúc Chunk",
   "form.desc": "Mô tả Kiến thức",
-  "form.descPlaceholder": "Mô tả những gì có trong Kiến thức này. Một mô tả chi tiết giúp AI truy cập nội dung của Kiến thức một cách hiệu quả. Nếu để trống, Dify sẽ sử dụng chiến lược truy xuất mặc định.",
+  "form.descPlaceholder": "Mô tả những gì có trong Kiến thức này. Một mô tả chi tiết giúp AI truy cập nội dung của Kiến thức một cách hiệu quả. Nếu để trống, AI助手 sẽ sử dụng chiến lược truy xuất mặc định.",
   "form.embeddingModel": "Mô hình nhúng",
   "form.embeddingModelTip": "Để thay đổi mô hình nhúng, vui lòng đi tới ",
   "form.embeddingModelTipLink": "Cài đặt",

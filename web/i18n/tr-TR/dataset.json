@@ -56,7 +56,7 @@
   "externalAPIForm.encrypted.end": "Teknoloji.",
   "externalAPIForm.encrypted.front": "API Token'ınız kullanılarak şifrelenecek ve saklanacaktır.",
   "externalAPIForm.save": "Kaydet",
-  "externalAPIPanelDescription": "Harici bilgi API'si, Dify dışındaki bir bilgi bankasına bağlanmak ve bu bilgi bankasından bilgi almak için kullanılır.",
+  "externalAPIPanelDescription": "Harici bilgi API'si, AI助手 dışındaki bir bilgi bankasına bağlanmak ve bu bilgi bankasından bilgi almak için kullanılır.",
   "externalAPIPanelDocumentation": "Harici Bilgi API'sinin nasıl oluşturulacağını öğrenin",
   "externalAPIPanelTitle": "Harici Bilgi API'si",
   "externalKnowledgeBase": "Harici Bilgi Bankası",

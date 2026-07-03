@@ -4,7 +4,7 @@
   "form.chunkStructure.learnMore": "Află mai multe",
   "form.chunkStructure.title": "Structura bucății",
   "form.desc": "Descrierea cunoștințelor",
-  "form.descPlaceholder": "Descrieți ce se află în aceste cunoștințe. O descriere detaliată permite AI să acceseze conținutul cunoștințelor într-un timp oportun. Dacă este gol, Dify va folosi strategia implicită.",
+  "form.descPlaceholder": "Descrieți ce se află în aceste cunoștințe. O descriere detaliată permite AI să acceseze conținutul cunoștințelor într-un timp oportun. Dacă este gol, AI助手 va folosi strategia implicită.",
   "form.embeddingModel": "Model de încorporare",
   "form.embeddingModelTip": "Schimbați modelul încorporat, vă rugăm să accesați ",
   "form.embeddingModelTipLink": "Setări",

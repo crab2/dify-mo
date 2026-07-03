@@ -56,7 +56,7 @@
   "externalAPIForm.encrypted.end": "tehnologije.",
   "externalAPIForm.encrypted.front": "Vaš API žeton bo šifriran in shranjen z uporabo",
   "externalAPIForm.save": "Shrani",
-  "externalAPIPanelDescription": "Zunanji API za znanje se uporablja za povezovanje z bazo znanja izven Dify in pridobivanje znanja iz te baze.",
+  "externalAPIPanelDescription": "Zunanji API za znanje se uporablja za povezovanje z bazo znanja izven AI助手 in pridobivanje znanja iz te baze.",
   "externalAPIPanelDocumentation": "Naučite se, kako ustvariti zunanji API za znanje",
   "externalAPIPanelTitle": "Zunanji API za znanje",
   "externalKnowledgeBase": "Zunanja baza znanja",

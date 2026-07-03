@@ -56,7 +56,7 @@
   "externalAPIForm.encrypted.end": "Teknologi.",
   "externalAPIForm.encrypted.front": "Token API Anda akan dienkripsi dan disimpan menggunakan",
   "externalAPIForm.save": "Simpan",
-  "externalAPIPanelDescription": "API pengetahuan eksternal digunakan untuk terhubung ke pangkalan pengetahuan di luar Dify dan mengambil pengetahuan dari basis pengetahuan tersebut.",
+  "externalAPIPanelDescription": "API pengetahuan eksternal digunakan untuk terhubung ke pangkalan pengetahuan di luar AI助手 dan mengambil pengetahuan dari basis pengetahuan tersebut.",
   "externalAPIPanelDocumentation": "Pelajari cara membuat API Pengetahuan Eksternal",
   "externalAPIPanelTitle": "API Pengetahuan Eksternal",
   "externalKnowledgeBase": "Basis Pengetahuan Eksternal",

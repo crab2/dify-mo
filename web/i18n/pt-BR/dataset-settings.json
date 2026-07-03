@@ -4,7 +4,7 @@
   "form.chunkStructure.learnMore": "Saiba Mais",
   "form.chunkStructure.title": "Estrutura de Chunk",
   "form.desc": "Descrição do conhecimento",
-  "form.descPlaceholder": "Descreva o que está neste conhecimento. Uma descrição detalhada permite que a IA acesse o conteúdo do conhecimento de forma oportuna. Se estiver vazio, o Dify usará a estratégia de correspondência padrão.",
+  "form.descPlaceholder": "Descreva o que está neste conhecimento. Uma descrição detalhada permite que a IA acesse o conteúdo do conhecimento de forma oportuna. Se estiver vazio, o AI助手 usará a estratégia de correspondência padrão.",
   "form.embeddingModel": "Modelo de incorporação",
   "form.embeddingModelTip": "Altere o modelo incorporado, por favor, vá para ",
   "form.embeddingModelTipLink": "Configurações",

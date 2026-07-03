@@ -122,7 +122,7 @@ describe('error_lookup_failed terminal state', () => {
 })
 
 describe('sso_error inline banner on the code-entry page', () => {
-  const SSO_BANNER_COPY = /identity is linked to a Dify account/i
+  const SSO_BANNER_COPY = /identity is linked to an AI助手 account/i
 
   it('shows the error banner with friendly copy when sso_error is present', async () => {
     mockSearchParams = { sso_error: 'email_belongs_to_dify_account' }

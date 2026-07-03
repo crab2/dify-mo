@@ -1,6 +1,7 @@
 import type { BlockEnum } from '@/app/components/workflow/types'
 import type { UseDifyNodesPath } from '@/types/doc-paths'
 import { BlockClassificationEnum } from '@/app/components/workflow/block-selector/types'
+import { DEFAULT_BRAND_NAME } from '@/constants/branding'
 
 type GenNodeMetaDataParams = {
   classification?: BlockClassificationEnum
@@ -20,7 +21,7 @@ export const genNodeMetaData = ({
   sort,
   type,
   title = '',
-  author = 'Dify',
+  author = DEFAULT_BRAND_NAME,
   helpLinkUri,
   isRequired = false,
   isUndeletable = false,

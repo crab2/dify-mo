@@ -56,7 +56,7 @@
   "externalAPIForm.encrypted.end": "Technologia.",
   "externalAPIForm.encrypted.front": "Twój token API zostanie zaszyfrowany i będzie przechowywany za pomocą",
   "externalAPIForm.save": "Zapisać",
-  "externalAPIPanelDescription": "Interfejs API wiedzy zewnętrznej służy do łączenia się z bazą wiedzy poza Dify i pobierania wiedzy z tej bazy wiedzy.",
+  "externalAPIPanelDescription": "Interfejs API wiedzy zewnętrznej służy do łączenia się z bazą wiedzy poza AI助手 i pobierania wiedzy z tej bazy wiedzy.",
   "externalAPIPanelDocumentation": "Dowiedz się, jak utworzyć interfejs API wiedzy zewnętrznej",
   "externalAPIPanelTitle": "Interfejs API wiedzy zewnętrznej",
   "externalKnowledgeBase": "Zewnętrzna baza wiedzy",

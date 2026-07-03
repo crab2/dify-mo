@@ -4,7 +4,7 @@
   "form.chunkStructure.learnMore": "Daha fazla bilgi edinin",
   "form.chunkStructure.title": "Yığın Yapısı",
   "form.desc": "Bilgi açıklaması",
-  "form.descPlaceholder": "Bu Bilginin içeriğini açıklayın. Ayrıntılı bir açıklama, AI'nın Bilginin içeriğine zamanında erişmesini sağlar. Boş bırakılırsa, Dify varsayılan isabet stratejisini kullanır.",
+  "form.descPlaceholder": "Bu Bilginin içeriğini açıklayın. Ayrıntılı bir açıklama, AI'nın Bilginin içeriğine zamanında erişmesini sağlar. Boş bırakılırsa, AI助手 varsayılan isabet stratejisini kullanır.",
   "form.embeddingModel": "Yerleştirme Modeli",
   "form.embeddingModelTip": "Yerleştirme modelini değiştirmek için, lütfen ",
   "form.embeddingModelTipLink": "Ayarlar'a gidin",

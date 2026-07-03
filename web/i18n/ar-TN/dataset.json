@@ -56,7 +56,7 @@
   "externalAPIForm.encrypted.end": "تقنية.",
   "externalAPIForm.encrypted.front": "سيتم تشفير رمز API الخاص بك وتخزينه باستخدام",
   "externalAPIForm.save": "حفظ",
-  "externalAPIPanelDescription": "تُستخدم واجهة برمجة تطبيقات المعرفة الخارجية للاتصال بقاعدة معرفة خارج Dify واسترجاع المعرفة من قاعدة المعرفة تلك.",
+  "externalAPIPanelDescription": "تُستخدم واجهة برمجة تطبيقات المعرفة الخارجية للاتصال بقاعدة معرفة خارج AI助手 واسترجاع المعرفة من قاعدة المعرفة تلك.",
   "externalAPIPanelDocumentation": "تعرف على كيفية إنشاء واجهة برمجة تطبيقات المعرفة الخارجية",
   "externalAPIPanelTitle": "واجهة برمجة تطبيقات المعرفة الخارجية",
   "externalKnowledgeBase": "قاعدة المعرفة الخارجية",

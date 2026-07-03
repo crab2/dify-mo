@@ -4,7 +4,7 @@
   "form.chunkStructure.learnMore": "Learn more",
   "form.chunkStructure.title": "Chunk Structure",
   "form.desc": "Description",
-  "form.descPlaceholder": "Describe what is in this data set. A detailed description allows AI to access the content of the data set in a timely manner. If empty, Dify will use the default hit strategy.",
+  "form.descPlaceholder": "Describe what is in this data set. A detailed description allows AI to access the content of the data set in a timely manner. If empty, AI助手 will use the default hit strategy.",
   "form.embeddingModel": "Embedding Model",
   "form.embeddingModelTip": "Change the embedded model, please go to ",
   "form.embeddingModelTipLink": "Settings",

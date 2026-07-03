@@ -1,1 +1,1 @@
-export const DEFAULT_BRAND_NAME = '中国移动'
+export const DEFAULT_BRAND_NAME = 'AI助手'

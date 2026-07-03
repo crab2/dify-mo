@@ -56,7 +56,7 @@
   "externalAPIForm.encrypted.end": "Tehnologie.",
   "externalAPIForm.encrypted.front": "Tokenul API va fi criptat și stocat folosind",
   "externalAPIForm.save": "Salva",
-  "externalAPIPanelDescription": "API-ul de cunoștințe externe este utilizat pentru a se conecta la o bază de cunoștințe din afara Dify și pentru a prelua cunoștințe din acea bază de cunoștințe.",
+  "externalAPIPanelDescription": "API-ul de cunoștințe externe este utilizat pentru a se conecta la o bază de cunoștințe din afara AI助手 și pentru a prelua cunoștințe din acea bază de cunoștințe.",
   "externalAPIPanelDocumentation": "Aflați cum să creați un API de cunoștințe externe",
   "externalAPIPanelTitle": "API de cunoștințe externe",
   "externalKnowledgeBase": "Baza de cunoștințe externă",

@@ -4,7 +4,7 @@
   "form.chunkStructure.learnMore": "Aprende más",
   "form.chunkStructure.title": "Estructura de fragmentos",
   "form.desc": "Descripción del conjunto de datos",
-  "form.descPlaceholder": "Describe lo que hay en este conjunto de datos. Una descripción detallada permite que la IA acceda al contenido del conjunto de datos de manera oportuna. Si está vacío, Dify utilizará la estrategia de coincidencia predeterminada.",
+  "form.descPlaceholder": "Describe lo que hay en este conjunto de datos. Una descripción detallada permite que la IA acceda al contenido del conjunto de datos de manera oportuna. Si está vacío, AI助手 utilizará la estrategia de coincidencia predeterminada.",
   "form.embeddingModel": "Modelo de incrustación",
   "form.embeddingModelTip": "Cambia el modelo de incrustación, por favor ve a ",
   "form.embeddingModelTipLink": "Configuración",

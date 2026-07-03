@@ -5,6 +5,7 @@ import type { useDatasetList } from '@/service/knowledge/use-dataset'
 import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import Loading from '@/app/components/base/loading'
+import { DEFAULT_BRAND_NAME } from '@/constants/branding'
 import { useInvalidDatasetList } from '@/service/knowledge/use-dataset'
 import DatasetCard from './dataset-card'
 import DatasetCardSkeleton from './dataset-card-skeleton'
@@ -41,7 +42,7 @@ const Datasets = ({
   const showDatasetSkeleton = !isFetchingNextPage && (isLoading || (isPlaceholderData && isFetching && datasets.length === 0))
 
   useEffect(() => {
-    document.title = `${t('knowledge', { ns: 'dataset' })} - Dify`
+    document.title = `${t('knowledge', { ns: 'dataset' })} - ${DEFAULT_BRAND_NAME}`
   }, [t])
 
   useEffect(() => {

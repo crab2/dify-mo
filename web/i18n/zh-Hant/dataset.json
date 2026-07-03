@@ -56,7 +56,7 @@
   "externalAPIForm.encrypted.end": "科技。",
   "externalAPIForm.encrypted.front": "您的 API 令牌將使用",
   "externalAPIForm.save": "救",
-  "externalAPIPanelDescription": "外部知識 API 用於連接到 Dify 外部的知識庫，並從該知識庫中檢索知識。",
+  "externalAPIPanelDescription": "外部知識 API 用於連接到 AI助手 外部的知識庫，並從該知識庫中檢索知識。",
   "externalAPIPanelDocumentation": "瞭解如何創建外部知識 API",
   "externalAPIPanelTitle": "外部知識 API",
   "externalKnowledgeBase": "外部知識庫",

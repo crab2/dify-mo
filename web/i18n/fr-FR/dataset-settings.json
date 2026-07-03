@@ -4,7 +4,7 @@
   "form.chunkStructure.learnMore": "Pour en savoir plus",
   "form.chunkStructure.title": "Structure de morceaux",
   "form.desc": "Description des connaissances",
-  "form.descPlaceholder": "Décrivez ce qui se trouve dans cette Connaissance. Une description détaillée permet à l'IA d'accéder au contenu de la Connaissance en temps opportun. Si vide, Dify utilisera la stratégie de hit par défaut.",
+  "form.descPlaceholder": "Décrivez ce qui se trouve dans cette Connaissance. Une description détaillée permet à l'IA d'accéder au contenu de la Connaissance en temps opportun. Si vide, AI助手 utilisera la stratégie de hit par défaut.",
   "form.embeddingModel": "Modèle d'Embedding",
   "form.embeddingModelTip": "Changez le modèle intégré, veuillez aller à",
   "form.embeddingModelTipLink": "Paramètres",

@@ -4,7 +4,7 @@
   "form.chunkStructure.learnMore": "了解更多",
   "form.chunkStructure.title": "分段模式",
   "form.desc": "描述",
-  "form.descPlaceholder": "描述该数据集的内容。详细描述可以让 AI 更快地访问数据集的内容。如果为空，Dify 将使用默认的命中策略。",
+  "form.descPlaceholder": "描述该数据集的内容。详细描述可以让 AI 更快地访问数据集的内容。如果为空，AI助手 将使用默认的命中策略。",
   "form.embeddingModel": "Embedding 模型",
   "form.embeddingModelTip": "修改 Embedding 模型，请去",
   "form.embeddingModelTipLink": "设置",

@@ -16,7 +16,7 @@ vi.mock('@/app/signin/utils/post-login-redirect', () => ({
 describe('Chooser', () => {
   it('renders account button', () => {
     render(<Chooser userCode="ABCD-3456" ssoAvailable={false} />)
-    expect(screen.getByRole('button', { name: /Sign in with Dify account/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Sign in with AI助手 account/i })).toBeInTheDocument()
   })
 
   it('hides SSO button when ssoAvailable is false', () => {
@@ -31,7 +31,7 @@ describe('Chooser', () => {
 
   it('sets post-login redirect and navigates to /signin on account button click', () => {
     render(<Chooser userCode="ABCD-3456" ssoAvailable={false} />)
-    fireEvent.click(screen.getByRole('button', { name: /Sign in with Dify account/i }))
+    fireEvent.click(screen.getByRole('button', { name: /Sign in with AI助手 account/i }))
     expect(vi.mocked(setPostLoginRedirect)).toHaveBeenCalledWith('/device?user_code=ABCD-3456')
     expect(mockPush).toHaveBeenCalledWith('/signin')
   })
@@ -39,7 +39,7 @@ describe('Chooser', () => {
   it('encodes userCode in post-login redirect', () => {
     // Uses a code with a space to exercise encodeURIComponent
     render(<Chooser userCode="AB CD" ssoAvailable={false} />)
-    fireEvent.click(screen.getByRole('button', { name: /Sign in with Dify account/i }))
+    fireEvent.click(screen.getByRole('button', { name: /Sign in with AI助手 account/i }))
     expect(vi.mocked(setPostLoginRedirect)).toHaveBeenCalledWith('/device?user_code=AB%20CD')
   })
 

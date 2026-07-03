@@ -56,7 +56,7 @@
   "externalAPIForm.encrypted.end": "Technologie.",
   "externalAPIForm.encrypted.front": "Ihr API-Token wird verschlüsselt und gespeichert mit",
   "externalAPIForm.save": "Retten",
-  "externalAPIPanelDescription": "Die API für externes Wissen wird verwendet, um eine Verbindung zu einer Wissensdatenbank außerhalb von Dify herzustellen und Wissen aus dieser Wissensdatenbank abzurufen.",
+  "externalAPIPanelDescription": "Die API für externes Wissen wird verwendet, um eine Verbindung zu einer Wissensdatenbank außerhalb von AI助手 herzustellen und Wissen aus dieser Wissensdatenbank abzurufen.",
   "externalAPIPanelDocumentation": "Erfahren Sie, wie Sie eine API für externes Wissen erstellen",
   "externalAPIPanelTitle": "API für externes Wissen",
   "externalKnowledgeBase": "Externe Wissensdatenbank",
