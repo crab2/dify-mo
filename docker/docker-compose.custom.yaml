@@ -36,6 +36,9 @@ services:
         ALPINE_MIRROR: ${ALPINE_MIRROR:-https://mirrors.aliyun.com/alpine}
         NPM_REGISTRY: ${NPM_REGISTRY:-https://registry.npmmirror.com}
         NEXT_PUBLIC_BASE_PATH: ${NEXT_PUBLIC_BASE_PATH:-}
+        NODE_BUILD_MAX_OLD_SPACE_SIZE: ${NODE_BUILD_MAX_OLD_SPACE_SIZE:-4096}
+        NEXT_BUILD_CPUS: ${NEXT_BUILD_CPUS:-2}
+        BUILD_VINEXT: ${BUILD_VINEXT:-false}
 
   db_postgres:
     image: ${DOCKER_HUB_PROXY:-docker.m.daocloud.io}/library/postgres:15-alpine

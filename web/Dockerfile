@@ -42,18 +42,22 @@ WORKDIR /app
 COPY --from=packages /app/ .
 COPY . .
 
-RUN corepack prepare pnpm@11.9.0 --activate
-
 WORKDIR /app/web
 ARG NODE_BUILD_MAX_OLD_SPACE_SIZE=4096
-ARG NEXT_BUILD_CPUS=1
+ARG NEXT_BUILD_CPUS=2
+ARG BUILD_VINEXT=false
 ENV NODE_OPTIONS="--max-old-space-size=${NODE_BUILD_MAX_OLD_SPACE_SIZE}"
 ENV NEXT_BUILD_CPUS=${NEXT_BUILD_CPUS}
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV pnpm_config_verify_deps_before_run=false
 RUN node -e "require.resolve('@base-ui/react/alert-dialog'); require.resolve('jotai')"
 RUN pnpm --config.verify-deps-before-run=false exec next build --webpack
-RUN pnpm --config.verify-deps-before-run=false build:vinext
+RUN if [ "${BUILD_VINEXT}" = "true" ]; then \
+      pnpm --config.verify-deps-before-run=false build:vinext; \
+    else \
+      mkdir -p /app/web/dist/standalone && \
+      printf "throw new Error('Vinext build was disabled at image build time. Set BUILD_VINEXT=true to enable it.');\n" > /app/web/dist/standalone/server.js; \
+    fi
 
 
 # production stage
