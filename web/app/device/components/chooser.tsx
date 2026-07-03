@@ -45,7 +45,11 @@ const Chooser: FC<Props> = ({ userCode, ssoAvailable }) => {
         onClick={onAccount}
       >
         <span className="i-ri-user-3-line h-4 w-4" />
-        Sign in with {DEFAULT_BRAND_NAME} account
+        Sign in with
+        {' '}
+        {DEFAULT_BRAND_NAME}
+        {' '}
+        account
       </Button>
       {ssoAvailable && (
         <Button

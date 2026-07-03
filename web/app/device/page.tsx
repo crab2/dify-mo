@@ -4,12 +4,12 @@ import { Button } from '@langgenius/dify-ui/button'
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 import Divider from '@/app/components/base/divider'
+import { DEFAULT_BRAND_NAME } from '@/constants/branding'
 import { userProfileQueryOptions } from '@/features/account-profile/client'
 import { systemFeaturesQueryOptions } from '@/features/system-features/client'
 import { usePathname, useRouter, useSearchParams } from '@/next/navigation'
 import { consoleQuery } from '@/service/client'
 import { deviceLookup } from '@/service/device-flow'
-import { DEFAULT_BRAND_NAME } from '@/constants/branding'
 import AuthorizeAccount from './components/authorize-account'
 import AuthorizeSSO from './components/authorize-sso'
 import Chooser from './components/chooser'
@@ -132,7 +132,12 @@ export default function DevicePage() {
             </div>
           )}
           <div>
-            <h1 className="text-2xl font-semibold text-text-primary">Authorize {DEFAULT_BRAND_NAME} CLI</h1>
+            <h1 className="text-2xl font-semibold text-text-primary">
+              Authorize
+              {DEFAULT_BRAND_NAME}
+              {' '}
+              CLI
+            </h1>
             <p className="mt-2 text-sm text-text-secondary">
               Enter the code shown in your terminal.
             </p>
@@ -195,7 +200,11 @@ export default function DevicePage() {
           <p className="text-sm text-text-secondary">Return to your terminal to continue.</p>
           <Divider className="my-3" />
           <Button variant="ghost" className="w-full" onClick={() => router.push('/')}>
-            Go to {DEFAULT_BRAND_NAME} console →
+            Go to
+            {' '}
+            {DEFAULT_BRAND_NAME}
+            {' '}
+            console →
           </Button>
         </div>
       )}
